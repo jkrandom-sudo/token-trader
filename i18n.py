@@ -1,0 +1,76 @@
+"""Bilingual strings."""
+
+STRINGS = {
+    "en": {
+        "title": "Token Trader",
+        "main_menu": "[P]lay  [H]elp  [S]ettings  S[c]ores  [Q]uit",
+        "choice": "Choice: ",
+        "bye": "Bye!",
+        "unknown": "Unknown choice.",
+        "help_title": "Help",
+        "help_text": "Trade tokens over several days. Commands: buy N, sell N, hold, q. Profit becomes score.",
+        "press_enter": "Press Enter to continue...",
+        "settings": "Settings",
+        "settings_menu": "1.Language  2.Sound  3.Volume  4.Difficulty  [B]ack",
+        "lang": "Language",
+        "sound": "Sound",
+        "volume": "Volume",
+        "difficulty": "Difficulty",
+        "on": "on",
+        "off": "off",
+        "scores": "Scores",
+        "no_scores": "No scores yet.",
+        "name_prompt": "Name for score: ",
+        "saved": "Score saved.",
+        "not_saved": "Score not saved.",
+        "status": "Day {day}/{days} | Cash {cash} | Tokens {tokens} | Price {price} | Trend {trend}",
+        "action_prompt": "Action (buy N/sell N/hold/q): ",
+        "invalid": "Invalid action.",
+        "accepted": "Trade accepted.",
+        "finished": "Final worth {worth}. Score {score}. Rating: {rating}",
+        "tycoon": "tycoon",
+        "broker": "broker",
+        "rookie": "rookie",
+        "broke": "broke",
+    },
+    "zh": {
+        "title": "代币交易",
+        "main_menu": "[P]开始  [H]帮助  [S]设置  [C]排行  [Q]退出",
+        "choice": "选择：",
+        "bye": "再见！",
+        "unknown": "未知选择。",
+        "help_title": "帮助",
+        "help_text": "在多个交易日买卖代币。命令：buy N、sell N、hold、q。利润会转换为分数。",
+        "press_enter": "按回车继续...",
+        "settings": "设置",
+        "settings_menu": "1.语言  2.音效  3.音量  4.难度  [B]返回",
+        "lang": "语言",
+        "sound": "音效",
+        "volume": "音量",
+        "difficulty": "难度",
+        "on": "开",
+        "off": "关",
+        "scores": "排行榜",
+        "no_scores": "暂无分数。",
+        "name_prompt": "输入名字保存分数：",
+        "saved": "分数已保存。",
+        "not_saved": "未保存分数。",
+        "status": "第 {day}/{days} 天 | 现金 {cash} | 代币 {tokens} | 价格 {price} | 趋势 {trend}",
+        "action_prompt": "操作（buy N/sell N/hold/q）：",
+        "invalid": "无效操作。",
+        "accepted": "交易成功。",
+        "finished": "最终资产 {worth}。分数 {score}。评级：{rating}",
+        "tycoon": "大亨",
+        "broker": "经纪人",
+        "rookie": "新人",
+        "broke": "破产",
+    },
+}
+
+
+def t(lang, key, **kwargs):
+    text = STRINGS.get(lang, STRINGS["en"]).get(key, key)
+    try:
+        return text.format(**kwargs)
+    except Exception:
+        return text
