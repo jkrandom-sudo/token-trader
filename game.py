@@ -34,7 +34,10 @@ def show_scores(settings):
     if not scores:
         _print(t(settings["lang"], "no_scores"))
     for idx, item in enumerate(scores, 1):
-        _print(f"{idx}. {item.get('name', '?')} {item.get('score', 0)} ({item.get('difficulty', '?')})")
+        name = item.get('name') or t(settings["lang"], "score_name_missing")
+        difficulty_key = "difficulty_" + item.get('difficulty', 'unknown')
+        difficulty_val = t(settings["lang"], difficulty_key)
+        _print(t(settings["lang"], "score_entry", idx=idx, name=name, score=item.get('score', 0), difficulty=difficulty_val))
     input(t(settings["lang"], "press_enter"))
 
 
@@ -42,10 +45,10 @@ def settings_menu(settings):
     while True:
         show_header(settings)
         _print(t(settings["lang"], "settings"))
-        _print(f"{t(settings['lang'], 'lang')}: {settings['lang']}")
+        _print(f"{t(settings['lang'], 'lang')}: {t(settings['lang'], 'lang_' + settings['lang'])}")
         _print(f"{t(settings['lang'], 'sound')}: {t(settings['lang'], 'on' if settings['sound'] else 'off')}")
         _print(f"{t(settings['lang'], 'volume')}: {settings['volume']}")
-        _print(f"{t(settings['lang'], 'difficulty')}: {settings['difficulty']}")
+        _print(f"{t(settings['lang'], 'difficulty')}: {t(settings['lang'], 'difficulty_' + settings['difficulty'])}")
         choice = input(t(settings["lang"], "settings_menu") + "\n" + t(settings["lang"], "choice")).strip().lower()
         if choice == "1":
             settings_mod.cycle_lang(settings)

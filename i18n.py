@@ -32,6 +32,13 @@ STRINGS = {
         "broker": "broker",
         "rookie": "rookie",
         "broke": "broke",
+        "difficulty_easy": "easy",
+        "difficulty_normal": "normal",
+        "difficulty_hard": "hard",
+        "lang_en": "English",
+        "lang_zh": "中文",
+        "score_entry": "{idx}. {name} {score} ({difficulty})",
+        "score_name_missing": "unknown",
     },
     "zh": {
         "title": "代币交易",
@@ -64,6 +71,13 @@ STRINGS = {
         "broker": "经纪人",
         "rookie": "新人",
         "broke": "破产",
+        "difficulty_easy": "简单",
+        "difficulty_normal": "普通",
+        "difficulty_hard": "困难",
+        "lang_en": "English",
+        "lang_zh": "中文",
+        "score_entry": "{idx}. {name} {score} ({difficulty})",
+        "score_name_missing": "未知",
     },
 }
 
